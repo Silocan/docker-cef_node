@@ -1,7 +1,7 @@
 FROM node:18.17-alpine
 
-RUN apk update && apk upgrade && apk add --update rsync openssh-client git ca-certificates \
-    && mkdir -p ~/.ssh && apk add --no-cache libstdc++ coreutils curl bash;
+RUN apk update && apk upgrade && apk add --update rsync openssh-client git  \
+    && mkdir -p ~/.ssh && mkdir -p /root/.ssh && apk add --no-cache libstdc++ coreutils curl bash ca-certificates;
 
 # Install nvm
 RUN touch ~/.profile && \
