@@ -1,5 +1,8 @@
-FROM node:14-alpine
-RUN apk update && apk upgrade && apk add --update rsync openssh-client git && mkdir -p ~/.ssh && apk add --no-cache libstdc++ coreutils curl bash;
+FROM node:18.17-alpine
+
+RUN apk update && apk upgrade && apk add --update rsync openssh-client git ca-certificates \
+    && mkdir -p ~/.ssh && apk add --no-cache libstdc++ coreutils curl bash;
+
 # Install nvm
 RUN touch ~/.profile && \
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash && \
